@@ -12,7 +12,9 @@ const typeDefs = gql`
   }
 
   type Query {
-    comics: [Comic]!
+    new: [Comic]!
+    previous: [Comic]!
+    future: [Comic]!
   }
 `
 
