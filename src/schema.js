@@ -15,6 +15,12 @@ const typeDefs = gql`
     new: [Comic]!
     previous: [Comic]!
     future: [Comic]!
+    search(
+      release_date: String
+      publisher: String
+      title: String
+      creators: String
+    ): [Comic]
   }
 `
 

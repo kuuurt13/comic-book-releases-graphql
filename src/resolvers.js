@@ -11,5 +11,10 @@ module.exports = {
       const { comicsAPI } = dataSources
       return comicsAPI.getAll(comicsAPI.types.future)
     },
+
+    search: (_, args, { dataSources }) => {
+      const { comicsAPI } = dataSources
+      return comicsAPI.search(args)
+    },
   },
 }
