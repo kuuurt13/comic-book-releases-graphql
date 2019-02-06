@@ -9,6 +9,7 @@ const typeDefs = gql`
     creators: String
     release_date: String
     diamond_id: String
+    cover_image: String
   }
 
   type Query {
