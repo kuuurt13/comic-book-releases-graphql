@@ -15,6 +15,7 @@ const typeDefs = gql`
     new: [Comic]!
     previous: [Comic]!
     future: [Comic]!
+    releaseDate(release_date: String!): [Comic]
     search(
       release_date: String
       publisher: String

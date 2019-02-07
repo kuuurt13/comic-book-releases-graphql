@@ -17,6 +17,15 @@ class ComicsAPI extends RESTDataSource {
     return comics
   }
 
+  async getByReleaseDate(releaseDate) {
+    try {
+      const { comics = [] } = await this.get(`release_date/${releaseDate}`)
+      return comics
+    } catch (e) {
+      return null
+    }
+  }
+
   async search(args = {}) {
     try {
       const { comics = [] } = await this.get('query', args)

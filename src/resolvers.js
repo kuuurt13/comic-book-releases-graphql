@@ -16,5 +16,10 @@ module.exports = {
       const { comicsAPI } = dataSources
       return comicsAPI.search(args)
     },
+
+    releaseDate: (_, { release_date }, { dataSources }) => {
+      const { comicsAPI } = dataSources
+      return comicsAPI.getByReleaseDate(release_date)
+    },
   },
 }
