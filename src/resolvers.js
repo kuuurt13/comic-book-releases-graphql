@@ -1,5 +1,8 @@
 module.exports = {
   Query: {
+    comic: (_, { diamondId }, { dataSources }) =>
+      dataSources.comicsAPI.getById(diamondId),
+
     new: (_, __, { dataSources }) => dataSources.comicsAPI.getByType(),
 
     previous: (_, __, { dataSources }) => {

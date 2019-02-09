@@ -20,6 +20,11 @@ class ComicsAPI extends RESTDataSource {
     }
   }
 
+  async getById(id) {
+    const { comics = [] } = await this.get(`diamond_id/${id}`)
+    return comics[0] ? this.comicReducer(comics[0]) : null
+  }
+
   async getByType(type = this.types.new) {
     const { comics = [] } = await this.get(type)
     return comics.map(this.comicReducer)
