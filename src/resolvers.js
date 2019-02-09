@@ -1,15 +1,15 @@
 module.exports = {
   Query: {
-    new: (_, __, { dataSources }) => dataSources.comicsAPI.getAll(),
+    new: (_, __, { dataSources }) => dataSources.comicsAPI.getByType(),
 
     previous: (_, __, { dataSources }) => {
       const { comicsAPI } = dataSources
-      return comicsAPI.getAll(comicsAPI.types.previous)
+      return comicsAPI.getByType(comicsAPI.types.previous)
     },
 
     future: (_, __, { dataSources }) => {
       const { comicsAPI } = dataSources
-      return comicsAPI.getAll(comicsAPI.types.future)
+      return comicsAPI.getByType(comicsAPI.types.future)
     },
 
     search: (_, args, { dataSources }) => {

@@ -7,18 +7,18 @@ const typeDefs = gql`
     title: String
     price: String
     creators: String
-    release_date: String
-    diamond_id: String
+    releaseDate: String
+    diamondId: String
   }
 
   type Query {
     new: [Comic]!
     previous: [Comic]!
     future: [Comic]!
-    releaseDate(release_date: String!): [Comic]
+    releaseDate(releaseDate: String!): [Comic]
     releases: [String]!
     search(
-      release_date: String
+      releaseDate: String
       publisher: String
       title: String
       creators: String

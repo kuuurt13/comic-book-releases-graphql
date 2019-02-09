@@ -12,15 +12,23 @@ class ComicsAPI extends RESTDataSource {
     }
   }
 
-  async getAll(type = this.types.new) {
+  comicReducer(comic) {
+    return {
+      ...comic,
+      releaseDate: comic.release_date,
+      diamondId: comic.diamond_id,
+    }
+  }
+
+  async getByType(type = this.types.new) {
     const { comics = [] } = await this.get(type)
-    return comics
+    return comics.map(this.comicReducer)
   }
 
   async getByReleaseDate(releaseDate) {
     try {
       const { comics = [] } = await this.get(`release_date/${releaseDate}`)
-      return comics
+      return comics.map(this.comicReducer)
     } catch (e) {
       return null
     }
@@ -34,7 +42,7 @@ class ComicsAPI extends RESTDataSource {
   async search(args = {}) {
     try {
       const { comics = [] } = await this.get('query', args)
-      return comics
+      return comics.map(this.comicReducer)
     } catch (e) {
       return null
     }
